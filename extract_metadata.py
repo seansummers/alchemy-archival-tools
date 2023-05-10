@@ -36,10 +36,9 @@ def main():
         else:
             break
 
-# TODO: Make a class that it puts all the data into instead of printing it.
-# TODO: Give that class an overrided version of string that makes it print it all pretty
 # TODO: Turn stuff into methods + a main()
-# Idea for a better search method:
+
+# TODO: Idea for a better search method:
 #  Get offset of start_code
 #  Get offset of end_all_code
 #  find() the next instance of [00 07 01 * * *]
@@ -48,7 +47,5 @@ def main():
 #  and it's time to search for the next instance of start_code,
 #  using the offset of end_all_code as a starting point.
 
-#def find_new_record(data):
-#    return data.find(start_code) + len(start_code)
-
-main()
+if __name__ == "__main__":
+    main()
