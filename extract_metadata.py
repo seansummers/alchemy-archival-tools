@@ -1,7 +1,7 @@
 import DocumentProfile
+from secrets import filename
 
 # TODO: Download more disks and figure out the folder structure so users can specify the location of the disk and not have to hunt down the specific file
-filename = r"C:\Users\vince\Dropbox\00 Grad School\05 Summer 2023\Test disk\1998 Jul - Dec; Private Foundation Returns for ALABAMA; pfal000s001\PFAL000S\DATA000\00001.PRO"
 START_CODE = '0023000A'
 END_CODES = ['000701240006', '000701250003', '000701260002', '000701270008', '000701280007', '000701290013', '0007012A0007', '0007012B0006']
     # Note to self: Each of these start with [00 07 01]
