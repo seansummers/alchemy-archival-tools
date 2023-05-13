@@ -12,7 +12,6 @@ class DocumentProfile:
 
 def __str__(self):
     result = f"==== Document Profile for {self.ein}  ====\r"
-    # result += f"EIN: {self.ein}\r"
     result += f"Return Type: {self.returntype}\r"
     result += f"State: {self.state}\r"
     result += f"Sub Code: {self.subcode}\r"
