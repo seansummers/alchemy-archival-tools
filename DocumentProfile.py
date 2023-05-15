@@ -10,14 +10,14 @@ class DocumentProfile:
         self.totalassets = totalassets
         self.zipcode = zipcode
 
-def __str__(self):
-    result = f"==== Document Profile for {self.ein}  ====\r"
-    result += f"Return Type: {self.returntype}\r"
-    result += f"State: {self.state}\r"
-    result += f"Sub Code: {self.subcode}\r"
-    result += f"Sub Date: {self.subdate}\r"
-    result += f"Tax Year: {self.taxyear}\r"
-    result += f"Taxpayer Name: {self.taxpayername}\r"
-    result += f"Total Assets: {self.totalassets}\r"
-    result += f"ZIP Code: {self.zipcode}\r"
-    return result
+    def __str__(self):
+        result = f"====  Document Profile for {self.ein}  ====\n"
+        result += f"Taxpayer Name: {self.taxpayername}\n"
+        result += f"State: {self.state}\n"
+        result += f"ZIP Code: {self.zipcode}\n"
+        result += f"Return Type: {self.returntype}\n"
+        result += f"Sub Date: {self.subdate}\n"
+        result += f"Tax Year: {self.taxyear}\n"
+        result += f"Sub Code: {self.subcode}\n"
+        result += f"Total Assets: {self.totalassets}\n"
+        return result
