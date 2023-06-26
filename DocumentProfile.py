@@ -1,3 +1,5 @@
+import json
+
 class DocumentProfile:
     def __init__(self, ein, returntype, state, subcode, subdate, taxyear, taxpayername, totalassets, zipcode):
         self.ein = ein
@@ -21,3 +23,6 @@ class DocumentProfile:
         result += f"Sub Code: {self.subcode}\n"
         result += f"Total Assets: {self.totalassets}\n"
         return result
+
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
