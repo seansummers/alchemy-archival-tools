@@ -1,14 +1,25 @@
 from DocumentProfile import DocumentProfile
-from secrets import filename
+from secrets import filenames
+import os.path
 
 def main():
+    for filename in filenames:
+        # Get the name of the CD-ROM we're currently looking at
+        # The path looks like this:
+        # C:\Users\olivia\Indiana University\O365-[Sec] IN-ULIB-BornDigital - Mss005\Mss005_[four-digit index number]\[THE DIRECTORY NAME WE WANT]\PFAL000S\DATA000\00001.PRO
+        current_cdrom_title = os.path.split(os.path.dirname(filename))[-3]
+
+        with open(filename, 'rb') as f:
+            data = f.read() # This "data" variable is where the entire file's contents is going to be stored
+
+        records = extract(data)
+        save_metadata(records, current_cdrom_title) # Save to a file
+
+########################################################################
+
+def extract(data):
     start_code = convert_to_bytes('0023000A') # This code is right before the data starts
     # Note to self: Each of the fields are separated by codes that start with [00 07 01] followed by three more bytes.
-
-    with open(filename, 'rb') as f:
-        data = f.read() # This "data" variable is where the entire file's contents is going to be stored
-
-    current_cdrom_title = "TODO" # Figure out how to get this!
 
     # Find the location of each record in the file
     all_start_offsets = []
@@ -43,8 +54,9 @@ def main():
         temp = DocumentProfile(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8])
         records.append(temp)
         index = index + 1
+    
+    return records
 
-    save_metadata(records, current_cdrom_title) # Save to a file
 
 # Helper methods!
 def get_text(data, start_offset, end_offset):
