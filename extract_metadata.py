@@ -66,11 +66,13 @@ def convert_to_bytes(input):
 
 def save_json_file(records, directory_name):
     result = ""
-    with open(f"metadata for {directory_name}.json", "a") as write_file:
+    filename_to_use = f"metadata for {directory_name}.json"
+    with open(filename_to_use, "a") as write_file:
         for record in records:
             result = record.toJSON() + "\r\n"
             write_file.write(result)
-            print(result) # Debug
+            # print(result) # Debug
+        print(f"Wrote {filename_to_use}!")
 
 # Now that everything's defined, run the dang thing!
 if __name__ == "__main__":
